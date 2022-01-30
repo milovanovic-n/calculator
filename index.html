@@ -11,21 +11,30 @@
   <div class="container">
     <div id="calculator">
       <div class="display">
-        <p id="displayNum">0</p>
+        <input id="displayNum" />
+        <p id="displaySum"></p>
       </div>
-      <div class="nums">
-        <button class="num">9</button>
-        <button class="num">8</button>
-        <button class="num">7</button>
-        <button class="num">6</button>
-        <button class="num">5</button>
-        <button class="num">4</button>
-        <button class="num">3</button>
-        <button class="num">2</button>
-        <button class="num">1</button>
-        <button class="num">=</button>
-        <button class="num">0</button>
-        <button class="num">+/-</button>
+      <div class="numsAndOperators">
+        <div class="nums">
+          <button class="btn numBtn">9</button>
+          <button class="btn numBtn">8</button>
+          <button class="btn numBtn">7</button>
+          <button class="btn numBtn">6</button>
+          <button class="btn numBtn">5</button>
+          <button class="btn numBtn">4</button>
+          <button class="btn numBtn">3</button>
+          <button class="btn numBtn">2</button>
+          <button class="btn numBtn">1</button>
+          <button class="btn">=</button>
+          <button class="btn numBtn">0</button>
+          <button class="btn">+/-</button>
+        </div>
+        <div class="operators">
+          <button class="btn operatorBtn">+</button>
+          <button class="btn operatorBtn">-</button>
+          <button class="btn operatorBtn">*</button>
+          <button class="btn operatorBtn">/</button>
+        </div>
       </div>
       <button>Clear</button>
     </div>

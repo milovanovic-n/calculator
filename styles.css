@@ -12,6 +12,13 @@
   border: 1px solid black;
 }
 
+/* Nums And Operators */
+.numsAndOperators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Nums Container */
 .nums {
   width: 100%;
@@ -26,4 +33,10 @@
 /* Num */
 .num {
   width: 33%;
+}
+
+/* Operators */
+.operators {
+  display: flex;
+  flex-direction: column;
 }

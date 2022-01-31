@@ -61,16 +61,23 @@ numberBtns.forEach(btn => {
 const operatorBtns = document.querySelectorAll(".operatorBtn");
 operatorBtns.forEach(btn => {
   btn.addEventListener("click", () => {
-
+    /* Check if the user entered value */
+    if(inputValue.value === "") {
+      currentOperator = btn.textContent;
+      return;
+    }
     /* 
       -First time we need to assing a value to currentOperator
       -and num1 
     */
-    if(currentOperator === "" && num1 === "") {
+    if(currentOperator === "" || num1 === "") {
       currentOperator = btn.textContent;
-      num1 = parseFloat(inputValue.value);
+      /* When the user hits equal button we have num1 */
+      if(num1 === "") {
+        num1 = parseFloat(inputValue.value);
+      }
+      displaySum.textContent = num1;
       inputValue.value = "";
-      return;
     }
     /* 
       -Every other time we need to assign a value to num2
@@ -83,8 +90,38 @@ operatorBtns.forEach(btn => {
       sum = operate(currentOperator, num1, num2);
       num1 = sum;
       currentOperator = nextOperator;
+      displaySum.textContent = num1;
       inputValue.value = "";
     }
     console.log(sum)
   })
 });
+
+/* Equal Button */
+const equalBtn = document.querySelector("#equalBtn");
+equalBtn.addEventListener("click", (e) => {
+  if(num1 && currentOperator) {
+    if(inputValue.value === "") {
+      return;
+    }
+    num2 = parseFloat(inputValue.value);
+    let sum = operate(currentOperator, num1, num2);
+    num1 = sum;
+    displaySum.textContent = num1;
+    currentOperator = "";
+    num2 = "";
+    inputValue.value = "";
+  }
+});
+
+/* Clear Button */
+const clearBtn = document.querySelector("#clearBtn");
+clearBtn.addEventListener("click", () => {
+  num1 = "";
+  num2 = "";
+  sum = 0;
+  currentOperator = "";
+  nextOperator = "";
+  inputValue.value = "";
+  displaySum.textContent = "";
+})

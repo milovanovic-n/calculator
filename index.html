@@ -10,33 +10,32 @@
 <body>
   <div class="container">
     <div id="calculator">
+      <!-- Display Number Screen -->
       <div class="display">
-        <input id="displayNum" />
-        <p id="displaySum"></p>
+        <p id="displaySum" class="displaySum"></p>
+        <input id="displayNum" class="inputNum" placeholder="0"/>
       </div>
+      <!-- All Number and Operators -->
       <div class="numsAndOperators">
-        <div class="nums">
-          <button class="btn numBtn">9</button>
-          <button class="btn numBtn">8</button>
-          <button class="btn numBtn">7</button>
-          <button class="btn numBtn">6</button>
-          <button class="btn numBtn">5</button>
-          <button class="btn numBtn">4</button>
-          <button class="btn numBtn">3</button>
-          <button class="btn numBtn">2</button>
-          <button class="btn numBtn">1</button>
-          <button id="equalBtn" class="btn">=</button>
-          <button class="btn numBtn">0</button>
-          <button class="btn">+/-</button>
-        </div>
-        <div class="operators">
-          <button class="btn operatorBtn">+</button>
-          <button class="btn operatorBtn">-</button>
-          <button class="btn operatorBtn">*</button>
-          <button class="btn operatorBtn">/</button>
-        </div>
+        <button class="num bigBtn clearBtn" id="clearBtn">Clear</button>
+        <button class="num bigBtn deleteBtn" id="deleteBtn">Delete</button>
+        <button class="num numBtn">7</button>
+        <button class="num numBtn">8</button>
+        <button class="num numBtn">9</button>
+        <button class="num  operatorBtn">/</button>
+        <button class="num numBtn">4</button>
+        <button class="num numBtn">5</button>
+        <button class="num numBtn">6</button>
+        <button class="num  operatorBtn">*</button>
+        <button class="num numBtn">1</button>
+        <button class="num numBtn">2</button>
+        <button class="num numBtn">3</button>
+        <button class="num  operatorBtn">-</button>
+        <button class="num numBtn">.</button>
+        <button class="num numBtn">0</button>
+        <button id="equalBtn" class="num">=</button>
+        <button class="num  operatorBtn">+</button>
       </div>
-      <button id="clearBtn">Clear</button>
     </div>
   </div>
 

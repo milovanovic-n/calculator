@@ -8,6 +8,7 @@ let nextOperator = "";
 
 const inputValue = document.querySelector("#displayNum");
 const displaySum = document.querySelector("#displaySum");
+const decimalNum = document.querySelector("#decimalNum");
 
 /* Add function */
 const add = (num1, num2) => num1 + num2;
@@ -52,8 +53,11 @@ const operate = (operator, num1, num2) => {
 /* Select all Number Buttons */
 const numberBtns = document.querySelectorAll(".numBtn");
 numberBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
-    inputValue.value += btn.textContent;
+  btn.addEventListener("click", (e) => {
+    inputValue.textContent += btn.textContent;
+    if(e.target.innerText === ".") {
+      e.target.setAttribute("disabled", "");
+    }
   })
 })
 
@@ -61,8 +65,10 @@ numberBtns.forEach(btn => {
 const operatorBtns = document.querySelectorAll(".operatorBtn");
 operatorBtns.forEach(btn => {
   btn.addEventListener("click", () => {
+    /* Remove disabled attribute on decimal point button */
+    decimalNum.removeAttribute("disabled", "");
     /* Check if the user entered value */
-    if(inputValue.value === "") {
+    if(inputValue.textContent === "") {
       currentOperator = btn.textContent;
       return;
     }
@@ -74,10 +80,10 @@ operatorBtns.forEach(btn => {
       currentOperator = btn.textContent;
       /* When the user hits equal button we have num1 */
       if(num1 === "") {
-        num1 = parseFloat(inputValue.value);
+        num1 = parseFloat(inputValue.textContent);
       }
       displaySum.textContent = num1;
-      inputValue.value = "";
+      inputValue.textContent = "";
     }
     /* 
       -Every other time we need to assign a value to num2
@@ -85,15 +91,14 @@ operatorBtns.forEach(btn => {
       -store the value of the nextOperator and assign that value to currentOperator but after the calculation
     */
     else {
-      num2 = parseFloat(inputValue.value);
+      num2 = parseFloat(inputValue.textContent);
       nextOperator = btn.textContent;
       sum = operate(currentOperator, num1, num2);
       num1 = sum;
       currentOperator = nextOperator;
       displaySum.textContent = num1;
-      inputValue.value = "";
+      inputValue.textContent = "";
     }
-    console.log(sum)
   })
 });
 
@@ -101,16 +106,17 @@ operatorBtns.forEach(btn => {
 const equalBtn = document.querySelector("#equalBtn");
 equalBtn.addEventListener("click", (e) => {
   if(num1 && currentOperator) {
-    if(inputValue.value === "") {
+    if(inputValue.textContent === "") {
       return;
     }
-    num2 = parseFloat(inputValue.value);
+    decimalNum.removeAttribute("disabled", "");
+    num2 = parseFloat(inputValue.textContent);
     let sum = operate(currentOperator, num1, num2);
     num1 = sum;
     displaySum.textContent = num1;
     currentOperator = "";
     num2 = "";
-    inputValue.value = "";
+    inputValue.textContent = "";
   }
 });
 
@@ -122,6 +128,7 @@ clearBtn.addEventListener("click", () => {
   sum = 0;
   currentOperator = "";
   nextOperator = "";
-  inputValue.value = "";
+  inputValue.textContent = "";
   displaySum.textContent = "";
+  decimalNum.removeAttribute("disabled", "");
 })

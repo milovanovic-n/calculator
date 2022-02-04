@@ -131,4 +131,23 @@ clearBtn.addEventListener("click", () => {
   inputValue.textContent = "";
   displaySum.textContent = "";
   decimalNum.removeAttribute("disabled", "");
-})
+});
+
+/* Delete Button */
+const deleteBtn = document.querySelector("#deleteBtn");
+deleteBtn.addEventListener("click", (e) => {
+  /* 
+    Remove last entered digit from input field 
+    Get the removed digit  
+  */
+  const getRevomedChar = inputValue.textContent[inputValue.textContent.length - 1];
+  if(inputValue.textContent.length > 0) {
+    inputValue.textContent = inputValue.textContent.slice(0, -1);
+    /* If removed digit is === "." enable that button */
+    if(getRevomedChar === ".") {
+      decimalNum.removeAttribute("disabled", "");
+    }
+  } else {
+    decimalNum.removeAttribute("disabled", "");
+  }
+});

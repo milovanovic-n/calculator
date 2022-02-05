@@ -67,9 +67,11 @@ operatorBtns.forEach(btn => {
   btn.addEventListener("click", () => {
     /* Remove disabled attribute on decimal point button */
     decimalNum.removeAttribute("disabled", "");
+
     /* Check if the user entered value */
     if(inputValue.textContent === "") {
       currentOperator = btn.textContent;
+      displaySum.textContent = `${num1} ${currentOperator}`
       return;
     }
     /* 
@@ -78,11 +80,12 @@ operatorBtns.forEach(btn => {
     */
     if(currentOperator === "" || num1 === "") {
       currentOperator = btn.textContent;
+
       /* When the user hits equal button we have num1 */
       if(num1 === "") {
         num1 = parseFloat(inputValue.textContent);
       }
-      displaySum.textContent = num1;
+      displaySum.textContent = `${num1} ${currentOperator}`;
       inputValue.textContent = "";
     }
     /* 
@@ -96,7 +99,7 @@ operatorBtns.forEach(btn => {
       sum = operate(currentOperator, num1, num2);
       num1 = sum;
       currentOperator = nextOperator;
-      displaySum.textContent = num1;
+      displaySum.textContent = `${num1} ${currentOperator}`;
       inputValue.textContent = "";
     }
   })

@@ -38,15 +38,18 @@
   background-color: #d3d3d3;
 }
 
-.displaySum {
+.displaySum, .inputNum {
+  overflow: hidden;
   text-align: right;
+}
+
+.displaySum {
   font-size: 1.2rem;
   height: 30px;
 }
 
 .inputNum {
   border: none;
-  text-align: right;
   font-size: 2rem;
   height: 40px;
   background-color: #d3d3d3;

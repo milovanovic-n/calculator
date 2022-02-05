@@ -1,5 +1,4 @@
-/* Starting Value */
-/*let startValue = 0;*/
+/* Starting Values */
 let num1 = "";
 let num2 = "";
 let sum = 0;

@@ -75,7 +75,22 @@
   border-radius: 4px;
   font-size: 1.1rem;
   font-weight: bold;
+  background-color: #ffffff;
 }
+.num:hover {
+  background-color: #d3d3d3;
+}
+
+.btnColor {
+  background-color: #C8E087;
+}
+.btnColor:hover {
+  background-color: #b5d362;
+}
+.btnColor[disabled] {
+  background-color: #b5d362;
+}
+
 /* Clear and Delete Buttons */
 .bigBtn {
   width: 48%;
@@ -84,7 +99,13 @@
 .deleteBtn {
   background-color: #729cc7;
 }
+.deleteBtn:hover {
+  background-color: #5b8ab9;
+}
 
 .clearBtn {
   background-color: #e5864f;
+}
+.clearBtn:hover {
+  background-color: #cc6f39;
 }

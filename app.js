@@ -46,6 +46,9 @@ const operate = (operator, num1, num2) => {
 
   /* Division */
   if(operator == "/") {
+    if(num2 === 0) {
+      return sum = 0;
+    }
     return divide(num1, num2);
   }
 }
@@ -108,13 +111,13 @@ operatorBtns.forEach(btn => {
 /* Equal Button */
 const equalBtn = document.querySelector("#equalBtn");
 equalBtn.addEventListener("click", (e) => {
-  if(num1 && currentOperator) {
+  if(num1 || num1 === 0 && currentOperator) {
     if(inputValue.textContent === "") {
       return;
     }
     decimalNum.removeAttribute("disabled", "");
     num2 = parseFloat(inputValue.textContent);
-    let sum = operate(currentOperator, num1, num2);
+    sum = operate(currentOperator, num1, num2);
     num1 = sum;
     displaySum.textContent = num1;
     currentOperator = "";
